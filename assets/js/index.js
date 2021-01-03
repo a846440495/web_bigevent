@@ -17,9 +17,9 @@ function getUserInfo() {
     $.ajax({
         type: 'GET',
         url: '/my/userinfo',
-        headers: {
-            Authorization: localStorage.getItem('token')
-        },
+        // headers: {
+        //     Authorization: localStorage.getItem('token')
+        // },
         success: function(res) {
             // console.log(res);
             if (res.status !== 0) return layer.msg(res.message)
@@ -43,7 +43,7 @@ function getUserInfo() {
 function renderAvatar(user) {
     var name = user.nickname || user.username;
     // 设置欢迎的文本
-    $('#welcome').html('欢迎' + user.username)
+    $('#welcome').html('欢迎&nbsp;&nbsp;' + user.username)
         //如果用户自己有头像就渲染自己的头像没有就渲染首字母大写头像
     if (user.user_pic !== null) {
         $('.layui-nav-img').attr('src', user.user_pic).show()

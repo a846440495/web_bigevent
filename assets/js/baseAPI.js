@@ -3,7 +3,7 @@ $.ajaxPrefilter(function(options) {
     options.url = 'http://ajax.frontend.itheima.net' + options.url
         //因为后边有很多次都要用到权限，所以我们再次进行拼接来节省
     if (options.url.indexOf('/my/') !== -1) {
-        options.header = {
+        options.headers = {
             Authorization: localStorage.getItem('token') || ''
         }
     }
